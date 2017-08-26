@@ -1,0 +1,32 @@
+.side-menu{
+  // height: 100vh;
+  border-right: 1px solid #ccc;
+}
+
+.manage-menu-section{
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+ul.manage-menu-item{
+  list-style: none;
+  padding-left: 20px;
+  li.active{
+    a{
+      color: $brand-primary!important;
+    }
+  }
+  li a{
+    text-decoration: none;
+    color: $text-color;
+    display: block;
+    transition: all .3s ease-in-out;
+  }
+    &.active{
+      color: $brand-primary!important;
+    }
+}
+
+ul.manage-menu-item li a:hover{
+  color: $brand-primary!important;
+}
