@@ -6,7 +6,7 @@
       @include('_includes.messages')
         <div class="panel panel-default m-t-30">
           <div class="panel-heading">
-            <h4 class="text-center">{{$user->name}} 's profile</h4>
+            <h3 class="text-center">{{ $user->name }} 's profile</h3>
           </div>
           <div class="panel-body">
             <div class="row">
@@ -18,7 +18,7 @@
             </div>
             @if (Laratrust::can('update-profile'))
             <div class="col-sm-8">
-              <form action="{{route('profile')}}" method="POST" enctype="multipart/form-data" class="form-inline">
+              <form action="{{ route('profile') }}" method="POST" enctype="multipart/form-data" class="form-inline">
                 {{ csrf_field() }}
                 {{ method_field('POST') }}
                 <div class="form-group m-t-100">
@@ -54,6 +54,4 @@
       </div>
     </div>
   </div>
-
-
 @endsection

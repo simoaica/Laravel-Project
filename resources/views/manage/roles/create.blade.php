@@ -4,27 +4,27 @@
     <div class="col-sm-9">
       <div class="row">
         <div class="col-xs-12">
-          <h2>Create New Role</h2>
+          <h3>Create New Role</h3>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-xs-12">
-          <form action="{{route('roles.store')}}" method="POST">
-            {{csrf_field()}}
+          <form action="{{ route('roles.store') }}" method="POST">
+            {{ csrf_field() }}
 
             <h3>Role Details:</h3>
             <div class="form-group">
               <label for="display_name">Name (Human Readable)</label>
-              <input type="text" class="form-control" name="display_name" value="{{old('display_name')}}" id="display_name">
+              <input type="text" class="form-control" name="display_name" value="{{ old('display_name') }}" id="display_name">
             </div>
             <div class="form-group">
               <label for="name">Slug (Can not be changed)</label>
-              <input type="text" class="form-control" name="name" value="{{old('name')}}" id="name">
+              <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="name">
             </div>
             <div class="form-group">
               <label for="description">Description</label>
-              <input type="text" class="form-control" name="description" value="{{old('description')}}" id="description">
+              <input type="text" class="form-control" name="description" value="{{ old('description') }}" id="description">
             </div>
             <input type="hidden" :value="permissionsSelected" name="permissions">
             <hr>
@@ -32,7 +32,7 @@
             @foreach ($permissions as $permission)
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" v-model="permissionsSelected" value="{{$permission->id}}"> {{$permission->display_name}} <em>({{$permission->description}})</em>
+                  <input type="checkbox" v-model="permissionsSelected" value="{{ $permission->id }}"> {{ $permission->display_name }} <em>({{ $permission->description }})</em>
                 </label>
               </div>
             @endforeach

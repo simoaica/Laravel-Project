@@ -39,7 +39,10 @@
                             <li><a href="{{ route('profile') }}"><span><i class="fa fa-user m-r-5"></i></span> Profile</a></li>
                             @endif
                             @if (Laratrust::hasRole('superadministrator|administrator'))
-                            <li><a href="{{ route('manage.dashboard') }}"><span><i class="fa fa-cog m-r-5"></i></span> Manage</a></li>
+                            <li><a href="{{ route('manage.dashboard') }}"><span><i class="fa fa-cog m-r-5"></i></span> Manage Site</a></li>
+                            @endif
+                            @if (Laratrust::hasRole('superadministrator|administrator|teacher'))
+                            <li><a href="{{ route('courses.dashboard') }}"><span><i class="fa fa-book m-r-5"></i></span> Manage Courses</a></li>
                             @endif
                             <li class="divider">  </li>
                             <li>

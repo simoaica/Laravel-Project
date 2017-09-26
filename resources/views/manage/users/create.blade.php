@@ -4,12 +4,12 @@
     <div class="col-sm-9">
       <div class="row">
         <div class="col-xs-12">
-          <h2>Create New User</h2>
+          <h3>Create New User</h3>
         </div>
       </div>
       <hr>
       <div class="row">
-        <form action="{{route('users.store')}}" method="POST">
+        <form action="{{ route('users.store') }}" method="POST">
           <div class="col-xs-6">
             {{ csrf_field() }}
             {{ method_field('POST') }}
@@ -33,11 +33,11 @@
           </div>
           <div class="col-sm-6">
             <input type="hidden" name="roles" :value="rolesSelected" />
-            <h2 class="m-l-20 m-t-5">Roles:</h2>
+            <h3 class="m-l-20 m-t-5">Roles:</h3>
             @foreach ($roles as $role)
               <div class="checkbox m-l-20">
                 <label>
-                  <input type="checkbox" v-model="rolesSelected" value="{{$role->id}}"> {{$role->display_name}}
+                  <input type="checkbox" v-model="rolesSelected" value="{{ $role->id }}"> {{ $role->display_name }}
                 </label>
               </div>
             @endforeach

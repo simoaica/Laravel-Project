@@ -25,6 +25,12 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator')->gr
   Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
 });
 
+Route::prefix('courses')->middleware('role:superadministrator|administrator|teacher')->group(function(){
+  Route::get('/', 'CoursesController@base');
+  Route::get('/dashboard', 'CoursesController@dashboard')->name('courses.dashboard');
+  Route::resource('/manage', 'CoursesController');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'ProfileController@profile')->name('profile');
 Route::post('/profile', 'ProfileController@update_avatar')->name('update_avatar');

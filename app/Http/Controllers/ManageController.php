@@ -9,12 +9,13 @@ class ManageController extends Controller
 {
     public function index()
     {
-      $users = User::orderBy('id', 'desc')->paginate(10);
-      return redirect()->route('manage.dashboard')->withUsers($users);
+      return redirect()->route('manage.dashboard');
     }
 
     public function dashboard() {
-      $users = User::orderBy('id', 'desc')->paginate(10);
+      $users = User::with('roles')->orderBy('id', 'desc')->paginate(10);
+      // dd($users[0]->roles[0]->display_name);
+
       return view('manage.dashboard')->withUsers($users);
     }
 }

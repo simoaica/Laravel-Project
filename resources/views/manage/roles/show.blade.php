@@ -4,11 +4,11 @@
     <div class="col-sm-9">
       <div class="row">
         <div class="col-sm-6">
-          <h3>{{$role->display_name}}<small class="m-l-25"><em>({{$role->name}})</em></small></h3>
-          <h5>{{$role->description}}</h5>
+          <h3>{{ $role->display_name }}<small class="m-l-25"><em>({{ $role->name }})</em></small></h3>
+          <h5>{{ $role->description }}</h5>
         </div>
         <div class="col-sm6">
-          <a href="{{route('roles.edit', $role->id)}}" class="btn btn-primary btn-sm pull-right m-t-25"><i class="fa fa-edit m-r-10"></i> Edit Role</a>
+          <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-primary btn-sm pull-right m-t-25"><i class="fa fa-edit m-r-10"></i> Edit Role</a>
         </div>
       </div>
       <hr>
@@ -21,7 +21,7 @@
             <div class="panel-body">
               <ul>
                 @foreach ($role->permissions as $r)
-                  <li>{{$r->display_name}} <em class="m-l-15">({{$r->description}})</em></li>
+                  <li>{{ $r->display_name }} <em class="m-l-15">({{ $r->description }})</em></li>
                 @endforeach
               </ul>
             </div>

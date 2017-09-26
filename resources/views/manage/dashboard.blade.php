@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-sm-9">
       <h2 class="text-center">Manager Dashboard</h2>
-      <p class="text-center">Wellcome {{Auth::user()->roles()->get()->first()->name }} - <span class="lead"><strong>{{Auth::user()->name}}</strong></span></p>
+      <p class="text-center">Wellcome {{ Auth::user()->roles()->get()->first()->name }} - <span class="lead"><strong>{{ Auth::user()->name }}</strong></span></p>
       <div class="row">
         <div class="col-xs-12">
           <h4 class="m-t-20">There are {{ $users->count() }} users registered on the site:</h4>
@@ -13,17 +13,18 @@
                 <th>id</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Role</th>
                 <th>Date Created</th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
               @foreach ($users as $user)
                 <tr>
-                <th>{{$user->id}}</th>
-                <th>{{$user->name}}</th>
-                <td>{{$user->email}}</td>
-                <td>{{$user->created_at->toFormattedDateString()}}</td>
+                <th>{{ $user->id }}</th>
+                <th>{{ $user->name }}</th>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->roles[0]->display_name }}</td>
+                <td>{{ $user->created_at->toFormattedDateString() }}</td>
               </tr>
               @endforeach
             </tbody>

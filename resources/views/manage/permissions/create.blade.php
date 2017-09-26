@@ -4,14 +4,14 @@
     <div class="col-sm-9">
       <div class="row">
         <div class="col-xs-12">
-          <h2>Create New Permission</h2>
+          <h3>Create New Permission</h3>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-xs-12">
-          <form action="{{route('permissions.store')}}" method="POST">
-            {{csrf_field()}}
+          <form action="{{ route('permissions.store') }}" method="POST">
+            {{ csrf_field() }}
 
             <div class="form-group">
               <label class="radio-inline">

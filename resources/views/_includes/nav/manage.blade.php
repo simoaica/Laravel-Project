@@ -7,7 +7,7 @@
           General
         </div>
         <ul class="manage-menu-item">
-          <li><a href="{{route('manage.dashboard')}}">Dashboard</a></li>
+          <li><a href="{{ route('manage.dashboard') }}">Dashboard</a></li>
         </ul>
 
         @if(Laratrust::hasRole('superadministrator'))
@@ -15,9 +15,9 @@
             Administration
           </div>
           <ul class="manage-menu-item">
-            <li ><a href="{{route('users.index')}}">Manage Users</a></li>
-            <li class="p-t-5"><a href="{{route('permissions.index')}}">Manage Permissions</a></li>
-            <li class="p-t-5"><a href="{{route('roles.index')}}">Manage Roles</a></li>
+            <li ><a href="{{ route('users.index') }}">Manage Users</a></li>
+            <li class="p-t-5"><a href="{{ route('permissions.index') }}">Manage Permissions</a></li>
+            <li class="p-t-5"><a href="{{ route('roles.index') }}">Manage Roles</a></li>
           </ul>
         @endif
       </div>

@@ -4,7 +4,7 @@
     <div class="col-sm-9">
       <div class="row">
         <div class="col-xs-12">
-          <h2>Edit User</h2>
+          <h3>Edit user {{ $user->name }}</h3>
           <hr>
         </div>
       </div>
@@ -15,11 +15,11 @@
           <div class="col-sm-6">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" name="name" value="{{$user->name}}">
+              <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}">
+              <input type="text" class="form-control" id="email" name="email" value="{{ $user->email }}">
             </div>
             <div class="form-group">
               <label for="password">Password</label>
@@ -45,11 +45,11 @@
             </div>
             <div class="col-sm-6">
               <input type="hidden" name="roles" :value="rolesSelected" />
-              <h2 class="m-l-20 m-t-5">Roles:</h2>
+              <h3 class="m-l-20 m-t-5">Roles:</h3>
               @foreach ($roles as $role)
                 <div class="checkbox m-l-20">
                   <label>
-                    <input type="checkbox" v-model="rolesSelected" value="{{$role->id}}"> {{$role->display_name}}
+                    <input type="checkbox" v-model="rolesSelected" value="{{ $role->id }}"> {{ $role->display_name }}
                   </label>
                 </div>
               @endforeach

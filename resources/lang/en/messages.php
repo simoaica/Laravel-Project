@@ -18,4 +18,7 @@ return [
     'permission_updated' => 'Successfully updated the :name permission!',
     'role_created' => 'Successfully created the new :name role in the database!',
     'role_updated' => 'Successfully updated the :name role in the database!',
+    'course_created' => 'Course :name was successfully created!',
+    'course_deleted' => 'Course :name was successfully deleted from the database!',
+    'course_updated' => 'Course :name was successfully updated!',
 ];
