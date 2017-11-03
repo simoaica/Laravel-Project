@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://bootswatch.com/{{env('APP_THEME', 'slate')}}/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/3/{{env('APP_THEME', 'slate')}}/bootstrap.min.css">
     @yield('styles')
 </head>
 <body>
