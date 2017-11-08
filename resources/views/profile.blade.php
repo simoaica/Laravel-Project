@@ -27,6 +27,9 @@
                 </div>
                 <button type="submit" class="btn btn-sm btn-primary m-t-100"><span><i class="fa fa-user m-r-5"></i></span> Update profile avatar</button>
               </form>
+              <span><a href="{{ route('delete_avatar', $user->id) }}" onclick="if (confirm('Are you sure you want to delete user {{ $user->name }} \'s avatar ?') == false) {
+                 return false;
+                }" class="btn btn-success btn-sm pull-right m-r-10 m-t-10">Delete Avatar</a></span>
             </div>
             @endif
             </div>

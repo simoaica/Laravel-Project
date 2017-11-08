@@ -18,7 +18,7 @@
 <body>
     <div id="app">
       @include('_includes.nav.main')
-      @include('_includes.messages')
+      <!-- @include('_includes.messages') -->
       @yield('content')
     </div>
 

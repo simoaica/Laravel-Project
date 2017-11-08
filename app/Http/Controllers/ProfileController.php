@@ -7,6 +7,7 @@ use Auth;
 use Image;
 use File;
 use Session;
+use App\User;
 
 class ProfileController extends Controller
 {
@@ -28,7 +29,7 @@ class ProfileController extends Controller
     if ($request->hasFile('avatar')) {
       $avatar = $request->file('avatar');
       $filename = time() . '.' . $avatar->getClientOriginalExtension();
-      // delete users old image add this before uplading the new image. Remember to add "use File; on the top of the controller"
+      // delete users old image add this before uploading the new image. Remember to add "use File; on the top of the controller"
        if (Auth::user()->avatar != "default.jpg") {
            $path = '/uploads/avatars/';
            $lastpath= Auth::user()->avatar;
@@ -44,7 +45,46 @@ class ProfileController extends Controller
     }
 
     Session::flash('success', __('messages.profile', ['name' => $user->name]));
-    return view('profile')->withUser(Auth::user());
+    return redirect()->route('profile');
+  }
+
+  public function delete_avatar($id)
+  {
+    $roluri = Auth::user()->roles;
+    $admin = false;
+    foreach ($roluri as $role)
+        {
+            if ($role->name == 'superadministrator')
+            {
+                $admin = true;
+            }
+        }
+
+    if (Auth::user()->id == $id) {
+      if (Auth::user()->avatar != "default.jpg") {
+          $path = '/uploads/avatars/';
+          $avatar_path= Auth::user()->avatar;
+          File::Delete(public_path( $path . $avatar_path) );
+          $user = Auth::user();
+          $user->avatar = 'default.jpg';
+          $user->save();
+        }
+      Session::flash('success', __('messages.profile', ['name' => $user->name]));
+      return back();
+    } elseif ($admin) {
+      $useru= User::find($id);
+      if ($useru->avatar != "default.jpg") {
+          $path = '/uploads/avatars/';
+          $avatar_path= $useru->avatar;
+          File::Delete(public_path( $path . $avatar_path) );
+          $useru->avatar = 'default.jpg';
+          $useru->save();
+        }
+        Session::flash('success', __('messages.profile', ['name' => $useru->name]));
+        return back();
+      } else {
+        return back();
+      }
   }
 
   public function update_email(Request $request)
@@ -62,6 +102,6 @@ class ProfileController extends Controller
     }
 
     Session::flash('success', __('messages.profile', ['name' => $user->name]));
-    return view('profile')->withUser(Auth::user());
+    return redirect()->route('profile');
   }
 }

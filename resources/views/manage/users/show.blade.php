@@ -18,6 +18,9 @@
         <div class="panel-body">
           <p>Name: {{ $user->name }}</p>
           <p>Email: {{ $user->email }}</p>
+          <p>Avatar: <span class="avatar-64"><a href="{{ route('delete_avatar', $user->id) }}" onclick="if (confirm('Are you sure you want to delete user {{ $user->name }} \'s avatar ?') == false) {
+             return false;
+            }"><img src="/uploads/avatars/{{ $user->avatar }}"></a></span></p>
           <hr>
           <p>Roles:</p>
             <ul>

@@ -11836,3 +11836,10 @@ ul.manage-menu-item li a:hover {
   margin-right: 10px;
 }
 
+.avatar-64 img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+

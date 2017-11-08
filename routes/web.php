@@ -32,6 +32,10 @@ Route::prefix('courses')->middleware('role:superadministrator|administrator|teac
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile', 'ProfileController@profile')->name('profile');
-Route::post('/profile', 'ProfileController@update_avatar')->name('update_avatar');
-Route::post('/profile/email', 'ProfileController@update_email')->name('update_email');
+
+Route::prefix('profile')->middleware('auth')->group(function(){
+  Route::get('/', 'ProfileController@profile')->name('profile');
+  Route::post('/', 'ProfileController@update_avatar')->name('update_avatar');
+  Route::post('email', 'ProfileController@update_email')->name('update_email');
+  Route::get('delete-avatar/{id}', 'ProfileController@delete_avatar')->name('delete_avatar');
+});
