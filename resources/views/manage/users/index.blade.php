@@ -16,6 +16,7 @@
           <tr>
             <th>id</th>
             <th>Name</th>
+            <th>Avatar</th>
             <th>Email</th>
             <th>Date Created</th>
             <th></th>
@@ -26,6 +27,7 @@
             <tr>
             <th>{{$user->id}}</th>
             <th>{{$user->name}}</th>
+            <td><img src={{asset('uploads/avatars').'/'.$user->avatar}} class="avatar-menu"></td>
             <td>{{$user->email}}</td>
             <td>{{$user->created_at->toFormattedDateString()}}</td>
             <td>
